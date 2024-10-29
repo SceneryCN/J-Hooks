@@ -1,9 +1,10 @@
 import React from 'react';
+import type { UseMountType } from './types';
 /**
  * 当组件挂载时执行回调函数
  * @param callback 回调函数，组件挂载时执行
  */
-function useMount(callback: Function) {
+const useMount: UseMountType = (callback) => {
   // 创建一个ref对象来跟踪组件是否已挂载
   const isMounted = React.useRef(false);
 
@@ -17,6 +18,6 @@ function useMount(callback: Function) {
       isMounted.current = true;
     }
   }, []); // 依赖项为空数组，确保只在组件挂载时执行
-}
+};
 
 export default useMount;
